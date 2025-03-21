@@ -15,6 +15,9 @@
     <header>
         <nav class="navbar">
             <div class="logo">Florist Choice</div>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
             <div class="nav-links">
                 <a href="#" class="active">Home</a>
                 <a href="#">Shop</a>
@@ -23,7 +26,25 @@
             </div>
             <div class="nav-icons">
                 <input type="search" placeholder="Search..." />
-                <a href="#" class="user-icon"><i class="fas fa-user"></i></a>
+                <div class="profile-dropdown">
+                    <a href="#" class="user-icon"><i class="fas fa-user"></i></a>
+                    <div class="dropdown-menu">
+                        <div class="dropdown-header">
+                            <img src="https://randomuser.me/api/portraits/men/1.jpg" alt="Profile" class="mini-profile-pic">
+                            <div class="user-info">
+                                <h4>John Doe</h4>
+                                <p>john.doe@example.com</p>
+                            </div>
+                        </div>
+                        <div class="dropdown-links">
+                            <a href="#"><i class="fas fa-user-circle"></i> My Profile</a>
+                            <a href="#"><i class="fas fa-shopping-bag"></i> My Orders</a>
+                            <a href="#"><i class="fas fa-heart"></i> Wishlist</a>
+                            <a href="#"><i class="fas fa-cog"></i> Settings</a>
+                            <a href="#" class="logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                        </div>
+                    </div>
+                </div>
                 <a href="#" class="cart-icon"><i class="fas fa-shopping-cart"></i></a>
             </div>
         </nav>
@@ -31,7 +52,8 @@
 
     <main>
         <section class="hero">
-            <div class="hero-content">
+            <!-- Add data-scroll to elements you want to animate -->
+            <div class="hero-content" data-scroll>
                 <h1>Bespoke Floral Creations</h1>
                 <p>Handcrafted with love and care</p>
                 <button class="shop-now">Shop Now</button>

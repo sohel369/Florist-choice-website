@@ -131,6 +131,99 @@ body {
     font-weight: 500;
 }
 
+/* header toggle */
+/* Add this to your Navigation styles */
+.menu-toggle {
+    display: none;  /* Initially hide the menu toggle */
+}
+
+/* Keep your existing media query */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;  /* Show menu toggle only on mobile */
+        font-size: 1.5rem;
+        color: var(--text-dark);
+        cursor: pointer;
+        transition: color 0.3s ease;
+    }
+
+    .menu-toggle:hover {
+        color: var(--primary-color);
+    }
+}
+/* Update the media query for mobile responsiveness */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 1rem 4%;
+    }
+
+    .menu-toggle {
+        display: block;
+        font-size: 1.5rem;
+        color: var(--text-dark);
+        cursor: pointer;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 70px);
+        background: var(--white);
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem 0;
+        transition: left 0.3s ease;
+        z-index: 999;
+    }
+
+    .nav-links.active {
+        left: 0;
+    }
+
+    .nav-links a {
+        margin: 1rem 0;
+        font-size: 1.2rem;
+    }
+
+    /* Hide search and icons in mobile view */
+    .nav-icons {
+        display: none;
+    }
+
+    .nav-links.active + .nav-icons {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        padding: 1rem 4%;
+        background: var(--white);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        z-index: 998;
+    }
+}
+
+/* scroll */
+/* Add this after your existing animations */
+[data-scroll] {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 1s ease;
+}
+
+[data-scroll="in"] {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+[data-scroll="out"] {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
 /* Hero Section */
 .hero {
     height: 100vh;
@@ -222,6 +315,69 @@ body {
 .dot.active {
     background: var(--white);
     transform: scale(1.2);
+}@media (max-width: 768px) {
+    .hero {
+        background-attachment: scroll;
+    }
+
+    .shop-now {
+        padding: 1rem 2.5rem;
+        font-size: 1rem;
+    }
+
+    .hero-dots {
+        bottom: 1rem;
+    }
+
+    .dot {
+        width: 10px;
+        height: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        background-attachment: scroll;
+        min-height: 100vh;
+        height: auto;
+        padding: 120px 0 60px;
+    }
+
+    .hero-content {
+        padding: 1rem;
+    }
+
+    .shop-now {
+        padding: clamp(0.8rem, 2vw, 1.2rem) clamp(2rem, 4vw, 3rem);
+        font-size: clamp(1rem, 2vw, 1.2rem);
+    }
+
+    .hero-dots {
+        bottom: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        padding: 100px 0 40px;
+    }
+
+    .hero-content {
+        width: 95%;
+        h1{
+            font-size: 24px;
+        }
+    }
+
+    .hero-dots {
+        bottom: 1rem;
+        gap: 0.8rem;
+    }
+
+    .dot {
+        width: 8px;
+        height: 8px;
+    }
 }
 
 @keyframes fadeInDown {
